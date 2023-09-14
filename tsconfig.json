@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "hidden/MovieAttributes.tsx", "hidden/DefinitionItem.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

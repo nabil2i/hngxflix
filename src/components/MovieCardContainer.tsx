@@ -14,7 +14,8 @@ const MovieCardContainer = ({ children }: Props) => {
           transition: 'transform .15s ease-in'
         }}
         overflow="hidden"
-        maxWidth="300px"
+        maxWidth="350px"
+        p={5}
       >
         {children}
       </Box>
