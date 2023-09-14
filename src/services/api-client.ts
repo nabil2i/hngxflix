@@ -1,5 +1,12 @@
 import axios, { AxiosRequestConfig } from "axios";
 
+export interface FetchResponse<T> {
+  page: number;
+  results: T[];
+  total_pages: number;
+  total_results: number;
+}
+
 const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : process.env.API_BASE_URL;
 const API_KEY = import.meta.env.DEV ? import.meta.env.VITE_API_KEY : process.env.API_BASE_URL;
 console.log(BASE_URL);
@@ -12,7 +19,7 @@ const axiosInstance = axios.create({
   }
 });
 
-class APIClient {
+class APIClient<T> {
   endpoint: string;
 
   constructor(endpoint: string) {
@@ -21,7 +28,13 @@ class APIClient {
 
   getAll = (config: AxiosRequestConfig) => {
     return axiosInstance
-      .get(this.endpoint, config)
+      .get<FetchResponse<T>>(this.endpoint, config)
+      .then(res => res.data);
+  };
+
+  get = (id: number) => {
+    return axiosInstance
+      .get<T>(this.endpoint + '/' + id)
       .then(res => res.data);
   };
 

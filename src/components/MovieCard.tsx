@@ -8,15 +8,22 @@ import {
   Tag,
   Text,
 } from "@chakra-ui/react";
-import movieimage from "../../hidden/nun.jpg";
 import imdb from "../assets/imdb.png";
 import rotten from "../assets/rotten-tomato.png";
+import Movie from "../entities/Movie";
 import LikeIcon from "./LikeIcon";
 
-export const MovieCard = () => {
+interface Props {
+  movie: Movie;
+}
+
+export const MovieCard = ({ movie }: Props) => {
   return (
     <Card data-testid="movie-card" shadow="none">
-      <Image src={movieimage} data-testid="movie-poster" />
+      <Image
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        data-testid="movie-poster"
+      />
       <HStack
         position="absolute"
         top={5}
@@ -38,7 +45,7 @@ export const MovieCard = () => {
           USA, 2016 - Current
         </Heading>
         <Heading paddingTop={3} as="h3" fontSize={30} data-testid="movie-title">
-          Nun
+          {movie.title}
         </Heading>
         <HStack paddingTop={2} justifyContent="space-between">
           <Box
