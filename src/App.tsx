@@ -1,15 +1,12 @@
-import './App.css';
-import { MovieCard } from './components/MovieCard';
-import MovieCardContainer from './components/MovieCardContainer';
+import "./App.css";
+import MovieGrid from "./components/MovieGrid";
 
 function App() {
   return (
     <>
-      <MovieCardContainer>
-        <MovieCard/>
-      </MovieCardContainer>
+      <MovieGrid />
     </>
   );
 }
 
-export default App
+export default App;
