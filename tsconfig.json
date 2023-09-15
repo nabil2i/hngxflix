@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "hidden/MovieAttributes.tsx", "hidden/DefinitionItem.tsx", "src/pages", "hidden/App.tsx"],
+  "include": ["src", "hidden/MovieAttributes.tsx", "hidden/DefinitionItem.tsx", "src/pages", "hidden/App.tsx", "hidden/useFeaturedMovies.ts", "hidden/NavBar0.tsx", "hidden/NavBarDefault.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -11,23 +11,15 @@ import {
 import useMovies from "../hooks/useMovies";
 import { MovieCard } from "./MovieCard";
 import MovieCardContainer from "./MovieCardContainer";
-import useMovieQueryStore from "../store/MovieStore";
-import { useEffect } from "react";
 
 const MovieGrid = () => {
   const { data: topRatedMovies, error, isLoading } = useMovies();
-  console.log("movies", topRatedMovies);
+  // console.log("movies", data);
 
-  // const language = useMovieQueryStore(s => s.movieQuery.language);
-  const setLanguage = useMovieQueryStore(s => s.setLanguage);
-  // const page = useMovieQueryStore(s => s.movieQuery.page);
-  const setPage = useMovieQueryStore(s => s.setPage);
+  // const movieDetails = topRatedMovies?.results.map((movie) => {
+  //   useMovie(movie.id);
 
-  useEffect(() => {
-    setPage(1);
-    setLanguage("en-US");
-  }, [setLanguage, setPage]);
-
+  // });
 
   if (isLoading)
     return (

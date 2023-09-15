@@ -9,8 +9,8 @@ export interface FetchResponse<T> {
 
 const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_BASE_URL : process.env.API_BASE_URL;
 const API_KEY = import.meta.env.DEV ? import.meta.env.VITE_API_KEY : process.env.API_BASE_URL;
-console.log(BASE_URL);
-console.log(API_KEY);
+// console.log(BASE_URL);
+// console.log(API_KEY);
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -32,7 +32,13 @@ class APIClient<T> {
       .then(res => res.data);
   };
 
-  get = (id: number) => {
+  getAllVideos = (config: AxiosRequestConfig) => {
+    return axiosInstance
+      .get<T>(this.endpoint, config)
+      .then(res => res.data);
+  };
+
+  get = (id: number | string) => {
     return axiosInstance
       .get<T>(this.endpoint + '/' + id)
       .then(res => res.data);

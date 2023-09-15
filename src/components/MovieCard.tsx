@@ -1,23 +1,15 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  HStack,
-  Heading,
-  Image,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
-import imdb from "../assets/imdb.png";
-import rotten from "../assets/rotten-tomato.png";
+import { Box, Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import Movie from "../entities/Movie";
 import LikeIcon from "./LikeIcon";
+import MovieRatings from "./MovieRatings";
 
 interface Props {
   movie: Movie;
 }
 
 export const MovieCard = ({ movie }: Props) => {
+  // console.log(movie);
   return (
     <Card data-testid="movie-card" shadow="none">
       <Image
@@ -29,48 +21,44 @@ export const MovieCard = ({ movie }: Props) => {
         top={5}
         p={4}
         width="100%"
-        justifyContent="space-between"
+        // justifyContent="space-between"
+        justifyContent="flex-end"
         align="center"
       >
-        <Tag bg="gray">TV SERIES</Tag>
+        {/* <Tag bg="gray">TV SERIES</Tag> */}
         <LikeIcon />
       </HStack>
       <CardBody>
-        <Heading
-          as="h4"
-          color="gray"
-          fontSize={15}
-          data-testid="movie-release-date"
-        >
-          USA, 2016 - Current
-        </Heading>
-        <Heading paddingTop={3} as="h3" fontSize={30} data-testid="movie-title">
-          {movie.title}
-        </Heading>
-        <HStack paddingTop={2} justifyContent="space-between">
-          <Box
-            display="flex"
-            gap={3}
-            alignItems="center"
-            justifyContent="center"
+        <Box>
+          <Text
+            as="span"
+            color="gray"
+            fontSize={15}
           >
-            <Box width="40px">
-              <Image src={imdb} />
-            </Box>
-            <Text>86.0 / 100</Text>
-          </Box>
-          <Box
-            display="flex"
-            gap={3}
-            alignItems="center"
-            justifyContent="center"
+            USA,  
+          </Text>
+          <Text
+            as="span"
+            color="gray"
+            fontSize={15}
+            data-testid="movie-release-date"
           >
-            <Box width="25px">
-              <Image src={rotten} />
-            </Box>
-            <Text>97%</Text>
-          </Box>
-        </HStack>
+            {formatDate(movie.release_date)}
+          </Text>
+        </Box>
+        <Link to={"/movies/" + movie.id}>
+          <Heading
+            paddingTop={3}
+            as="h3"
+            fontSize={20}
+            data-testid="movie-title"
+          >
+            {movie.title}
+          </Heading>
+        </Link>
+
+        <MovieRatings movie={movie} />
+
         <HStack paddingTop={2}>
           <Text color="gray">Action, Adventure, Horror</Text>
         </HStack>
@@ -78,3 +66,7 @@ export const MovieCard = ({ movie }: Props) => {
     </Card>
   );
 };
+
+function formatDate(datestring: string) {
+  return new Date(datestring).getFullYear();
+}
