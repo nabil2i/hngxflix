@@ -11,8 +11,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaChevronDown, FaStar } from "react-icons/fa";
-import tickets from "../assets/tickets.png";
 import lists from "../assets/lists.png";
+import tickets from "../assets/tickets.png";
 import Movie from "../entities/Movie";
 import BulletPoint from "./BulletPoint";
 import ImageGallery from "./ImageGallery";
@@ -34,14 +34,15 @@ const MovieInfo = ({ movie }: Props) => {
             </Text>
             <BulletPoint />
             <Text whiteSpace="nowrap" data-testid="movie-release-date">
-              {formatDate(movie.release_date)}
+              {new Date(movie.release_date).toISOString()}
             </Text>
             <BulletPoint />
             <Text whiteSpace="nowrap">PG-13</Text>
             <BulletPoint />
             <Text whiteSpace="nowrap" data-testid="movie-runtime">
-              {formatTime(movie.runtime)}
-            </Text>
+              {movie.runtime}
+            </Text>{" "}
+            <Text> minutes</Text>
           </HStack>
           {movie.genres.map((genre) => (
             <Badge
@@ -105,28 +106,28 @@ const MovieInfo = ({ movie }: Props) => {
           </HStack>
 
           <>
-          <Flex align="center" justify="space-between" p={2}>
-            {/* Left Box */}
-            <Box
-              bg="red.500"
-              color="white"
-              roundedLeft="md"
-              roundedRight="md"
-              border="1px"
-              borderColor="gray.300"
-              p={2}
-              width="auto"
-              textAlign="left"
-            >
-              <Text>Top rated movie #65</Text>
-            </Box>
+            <Flex align="center" justify="space-between" p={2}>
+              {/* Left Box */}
+              <Box
+                bg="red.500"
+                color="white"
+                roundedLeft="md"
+                roundedRight="md"
+                border="1px"
+                borderColor="gray.300"
+                p={2}
+                width="auto"
+                textAlign="left"
+              >
+                <Text>Top rated movie #65</Text>
+              </Box>
 
-            {/* Right Box */}
-            <Flex align="center">
-              <Text>Awards 9 nominations</Text>
-              <Icon as={FaChevronDown} boxSize={4} ml={2} />
+              {/* Right Box */}
+              <Flex align="center">
+                <Text>Awards 9 nominations</Text>
+                <Icon as={FaChevronDown} boxSize={4} ml={2} />
+              </Flex>
             </Flex>
-          </Flex>
           </>
         </GridItem>
         <GridItem colSpan={{ base: 1, md: 1 }}>
@@ -155,11 +156,16 @@ const MovieInfo = ({ movie }: Props) => {
               </Box>
               <Text>See Showtimes</Text>
             </Button>
-            <Button width="full" borderColor="red"
-              borderWidth="2px" bg="red.100" gap={2}
+            <Button
+              width="full"
+              borderColor="red"
+              borderWidth="2px"
+              bg="red.100"
+              gap={2}
               _hover={{
-                bg: 'white'
-              }}>
+                bg: "white",
+              }}
+            >
               <Box
                 // bg="red"
                 // borderRadius="50%"
@@ -178,7 +184,6 @@ const MovieInfo = ({ movie }: Props) => {
             </Button>
 
             <ImageGallery />
-
           </Flex>
         </GridItem>
       </SimpleGrid>
@@ -186,16 +191,16 @@ const MovieInfo = ({ movie }: Props) => {
   );
 };
 
-function formatDate(datestring: string) {
-  const utcDateString = datestring + 'T12:00:00Z'
-  return new Date(utcDateString).getFullYear();
-}
+// function formatDate(datestring: string) {
+//   const utcDateString = datestring + 'T12:00:00Z'
+//   return new Date(utcDateString).getFullYear();
+// }
 
-function formatTime(minutes: number) {
-  const hours = Math.floor(minutes / 60);
-  const remainingMinutes = minutes % 60;
-  return `${hours}h ${remainingMinutes}m`;
-}
+// function formatTime(minutes: number) {
+//   const hours = Math.floor(minutes / 60);
+//   const remainingMinutes = minutes % 60;
+//   return `${hours}h ${remainingMinutes}m`;
+// }
 
 function formatNumber(number: number) {
   if (number >= 1000) {
