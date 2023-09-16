@@ -62,7 +62,7 @@ export const MovieCard = ({ movie }: Props) => {
         <MovieRatings movie={movie} />
 
         <HStack paddingTop={2}>
-          <Text color="gray">Action, Adventure, Horror</Text>
+          <Text color="gray">Action, Adventure </Text>
         </HStack>
       </CardBody>
     </Card>

@@ -98,10 +98,10 @@ const MovieInfo = ({ movie }: Props) => {
             <Text>Director: </Text> <Text color="red.300">Joe</Text>
           </HStack>
           <HStack mt={4}>
-            <Text>Writters: </Text> <Text color="red.300">Hello</Text>
+            <Text>Writters: </Text> <Text color="red.300">Megan</Text>
           </HStack>
           <HStack mt={4}>
-            <Text>Stars: </Text> <Text color="red.300">Tome</Text>
+            <Text>Stars: </Text> <Text color="red.300">Tom Holland</Text>
           </HStack>
 
           <>

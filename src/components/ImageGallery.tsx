@@ -38,7 +38,7 @@ const ImageGallery = () => {
             <Image src={lists} />
           </Box>
         </Box>
-        <Text color="whilte">The Best Movies and Shows in September</Text>
+        <Text color="white">The Best Movies and Shows in September</Text>
       </Button>
       </Flex>
     </Box>

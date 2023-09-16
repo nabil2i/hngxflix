@@ -14,8 +14,8 @@ const Logo = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            width="60px"
-            height="60px"
+            width="50px"
+            height="50px"
           >
             <Box
               bg="red.600"

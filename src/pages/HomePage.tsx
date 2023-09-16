@@ -13,7 +13,7 @@ const HomePage = () => {
         <NavBar movies={data?.results.slice(0, 5)}/>
         
         <Box padding={6}>
-          <Grid pt="700px"
+          <Grid
           templateAreas={{
             base: `"main"`,
             lg: `"main"`,

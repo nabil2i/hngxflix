@@ -2,8 +2,8 @@ import { Box, Button, HStack, Heading, Icon, Text } from "@chakra-ui/react";
 import { FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Movie from "../entities/Movie";
-import MovieRatings from "./MovieRatings";
 import useTrailers from "../hooks/useTrailers";
+import MovieRatings from "./MovieRatings";
 
 interface Props {
   movie: Movie;
@@ -11,14 +11,19 @@ interface Props {
 
 export const NavBarMovieCard = ({ movie }: Props) => {
   // console.log(movie);
-  const { data: videos} = useTrailers(movie.id);
+  const { data: videos } = useTrailers(movie.id);
   const videoKey = videos?.results[0].key;
-  const videoLink = `https://www.youtube.com/watch?v=${videoKey}`
-  
+  const videoLink = `https://www.youtube.com/watch?v=${videoKey}`;
+
   return (
     <Box pl={50} textAlign="left" color="white">
       <Link to={"/movies/" + movie.id}>
-        <Heading as="h3" fontSize={40} data-testid="movie-title">
+        <Heading
+          whiteSpace={{ base: "nowrap", lg: "normal" }}
+          as="h3"
+          fontSize={40}
+          data-testid="movie-title"
+        >
           {movie.title}
         </Heading>
       </Link>
@@ -32,9 +37,7 @@ export const NavBarMovieCard = ({ movie }: Props) => {
         </Text>
       </HStack>
       <Box pt={4}>
-        <Button bg="red" gap={2} as="a" cursor="pointer"
-          href={videoLink}
-          >
+        <Button bg="red" gap={2} as="a" cursor="pointer" href={videoLink}>
           <Icon as={FaPlayCircle} color="gray.300" boxSize={5} />
           <Text>WATCH TRAILER</Text>
         </Button>

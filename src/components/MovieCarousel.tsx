@@ -21,7 +21,7 @@ const MovieCarousel = ({ movies }: Props) => {
         <Box key={movie.id}
           position="relative"
           width="100vw"
-          height="100vh"
+          height="70vh"
           overflow="hidden"
         >
           <Box

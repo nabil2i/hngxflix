@@ -27,9 +27,9 @@ const SearchInput = () => {
             ref={ref}
             border="2px"
             borderRadius={9}
-            color="white"
+            color="gray"
             placeholder="What do you want to watch?..."
-            width={{ base: "90vw", lg: "400px"}}
+            width={{ base: "250px", lg: "400px"}}
             // variant="filled"
           />
           <InputRightElement children={<BsSearch />} />

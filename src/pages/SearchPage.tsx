@@ -8,13 +8,13 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import Footer from "../components/Footer";
 import { MovieCard } from "../components/MovieCard";
 import MovieCardContainer from "../components/MovieCardContainer";
 import NavBar from "../components/NavBar";
 import useMovies from "../hooks/useMovies";
 import useSearchMovies from "../hooks/useSearchMovies";
 import useMovieQueryStore from "../store/MovieStore";
-import Footer from "../components/Footer";
 
 const SearchPage = () => {
   const { data: movies } = useMovies();
