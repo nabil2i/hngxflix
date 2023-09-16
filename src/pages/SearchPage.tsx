@@ -14,6 +14,7 @@ import NavBar from "../components/NavBar";
 import useMovies from "../hooks/useMovies";
 import useSearchMovies from "../hooks/useSearchMovies";
 import useMovieQueryStore from "../store/MovieStore";
+import Footer from "../components/Footer";
 
 const SearchPage = () => {
   const { data: movies } = useMovies();
@@ -78,6 +79,7 @@ const SearchPage = () => {
           </GridItem>
         </Grid>
       </Box>
+      <Footer />
     </Box>
   );
 };

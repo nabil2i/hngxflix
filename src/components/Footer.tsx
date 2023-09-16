@@ -7,7 +7,7 @@ const Footer = () => {
       direction="column"
       align="center"
       justify="center"
-      bg="gray.900"
+      // bg="gray.900"
       color="white"
       paddingY={4}
     >
