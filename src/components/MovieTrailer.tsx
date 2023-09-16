@@ -7,7 +7,7 @@ interface Props {
 
 const MovieTrailer = ({ movieId }: Props) => {
   const { data: videos, error, isLoading } = useTrailers(movieId);
-  console.log("videos pages", videos);
+  // console.log("videos pages", videos);
 
   if (isLoading) return null;
 

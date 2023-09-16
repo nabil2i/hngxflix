@@ -5,15 +5,17 @@ import {
   Flex,
   GridItem,
   HStack,
+  Icon,
   Image,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import { FaStar } from "react-icons/fa";
+import { FaChevronDown, FaStar } from "react-icons/fa";
 import tickets from "../assets/tickets.png";
 import lists from "../assets/lists.png";
 import Movie from "../entities/Movie";
 import BulletPoint from "./BulletPoint";
+import ImageGallery from "./ImageGallery";
 
 interface Props {
   movie: Movie;
@@ -26,19 +28,21 @@ const MovieInfo = ({ movie }: Props) => {
     <>
       <HStack justifyContent={{ lg: "space-between" }}>
         <HStack gap={2} fontWeight={700}>
-          <Text whiteSpace="nowrap" data-testid="movie-title">
-            {movie.title}
-          </Text>
-          <BulletPoint />
-          <Text whiteSpace="nowrap" data-testid="movie-release-date">
-            {formatDate(movie.release_date)}
-          </Text>
-          <BulletPoint />
-          <Text whiteSpace="nowrap">PG-13</Text>
-          <BulletPoint />
-          <Text whiteSpace="nowrap" data-testid="movie-runtime">
-            {formatTime(movie.runtime)}
-          </Text>
+          <HStack>
+            <Text whiteSpace="nowrap" data-testid="movie-title">
+              {movie.title}
+            </Text>
+            <BulletPoint />
+            <Text whiteSpace="nowrap" data-testid="movie-release-date">
+              {formatDate(movie.release_date)}
+            </Text>
+            <BulletPoint />
+            <Text whiteSpace="nowrap">PG-13</Text>
+            <BulletPoint />
+            <Text whiteSpace="nowrap" data-testid="movie-runtime">
+              {formatTime(movie.runtime)}
+            </Text>
+          </HStack>
           {movie.genres.map((genre) => (
             <Badge
               key={genre.id}
@@ -54,7 +58,7 @@ const MovieInfo = ({ movie }: Props) => {
 
         <HStack alignItems="center" justifyContent="flex-end">
           <FaStar color="yellow" />
-          <Text>
+          <Text whiteSpace="nowrap">
             {movie.vote_average.toFixed(1)} | {formatNumber(movie.vote_count)}
           </Text>
         </HStack>
@@ -99,6 +103,35 @@ const MovieInfo = ({ movie }: Props) => {
           <HStack mt={4}>
             <Text>Stars: </Text> <Text color="red.300">Tome</Text>
           </HStack>
+
+          <HStack mt={4}>
+            <Text>Stars: </Text> <Text color="red.300">Tome</Text>
+          </HStack>
+
+          <>
+          <Flex align="center" justify="space-between" p={2}>
+            {/* Left Box */}
+            <Box
+              bg="red.500"
+              color="white"
+              roundedLeft="md"
+              roundedRight="md"
+              border="1px"
+              borderColor="gray.300"
+              p={2}
+              width="auto"
+              textAlign="left"
+            >
+              <Text>Top rated movie #65</Text>
+            </Box>
+
+            {/* Right Box */}
+            <Flex align="center">
+              <Text>Awards 9 nominations</Text>
+              <Icon as={FaChevronDown} boxSize={4} ml={2} />
+            </Flex>
+          </Flex>
+          </>
         </GridItem>
         <GridItem colSpan={{ base: 1, md: 1 }}>
           <Flex
@@ -148,6 +181,8 @@ const MovieInfo = ({ movie }: Props) => {
               <Text color="black">More watch options</Text>
             </Button>
 
+            <ImageGallery />
+
           </Flex>
         </GridItem>
       </SimpleGrid>
@@ -156,7 +191,8 @@ const MovieInfo = ({ movie }: Props) => {
 };
 
 function formatDate(datestring: string) {
-  return new Date(datestring).getFullYear();
+  const utcDateString = datestring + 'T12:00:00Z'
+  return new Date(utcDateString).getFullYear();
 }
 
 function formatTime(minutes: number) {

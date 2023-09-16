@@ -12,10 +12,12 @@ export const MovieCard = ({ movie }: Props) => {
   // console.log(movie);
   return (
     <Card data-testid="movie-card" shadow="none">
-      <Image
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        data-testid="movie-poster"
-      />
+      <Link to={"/movies/" + movie.id}>
+        <Image
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          data-testid="movie-poster"
+          />
+      </Link>
       <HStack
         position="absolute"
         top={5}
@@ -68,5 +70,6 @@ export const MovieCard = ({ movie }: Props) => {
 };
 
 function formatDate(datestring: string) {
-  return new Date(datestring).getFullYear();
+  const utcDateString = datestring + 'T12:00:00Z'
+  return new Date(utcDateString).getFullYear();
 }

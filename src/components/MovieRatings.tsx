@@ -14,13 +14,13 @@ const MovieRatings = ({ movie }: Props) => {
         <Box width="40px">
           <Image src={imdb} />
         </Box>
-        <Text>{(movie.vote_average * 10).toFixed(1)} / 100</Text>
+        <Text whiteSpace="nowrap">{(movie.vote_average * 10).toFixed(1)} / 100</Text>
       </Box>
       <Box display="flex" gap={3} alignItems="center" justifyContent="center">
         <Box width="25px">
           <Image src={rotten} />
         </Box>
-        <Text>{ratings()}%</Text>
+        <Text whiteSpace="nowrap">{ratings()}%</Text>
       </Box>
     </HStack>
   );
