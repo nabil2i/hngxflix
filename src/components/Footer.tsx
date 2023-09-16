@@ -1,5 +1,4 @@
-import React from "react";
-import { Flex, Icon, Text, Link } from "@chakra-ui/react";
+import { Flex, Icon, Link, Text } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
