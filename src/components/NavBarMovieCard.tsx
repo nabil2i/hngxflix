@@ -16,7 +16,7 @@ export const NavBarMovieCard = ({ movie }: Props) => {
   const videoLink = `https://www.youtube.com/watch?v=${videoKey}`
   
   return (
-    <Box pl={50} textAlign="left">
+    <Box pl={50} textAlign="left" color="white">
       <Link to={"/movies/" + movie.id}>
         <Heading as="h3" fontSize={40} data-testid="movie-title">
           {movie.title}
