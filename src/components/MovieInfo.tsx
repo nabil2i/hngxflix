@@ -104,10 +104,6 @@ const MovieInfo = ({ movie }: Props) => {
             <Text>Stars: </Text> <Text color="red.300">Tome</Text>
           </HStack>
 
-          <HStack mt={4}>
-            <Text>Stars: </Text> <Text color="red.300">Tome</Text>
-          </HStack>
-
           <>
           <Flex align="center" justify="space-between" p={2}>
             {/* Left Box */}

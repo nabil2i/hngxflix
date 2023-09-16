@@ -13,4 +13,5 @@ export default interface Movie {
   vote_count: number;
   backdrop_path: string;
   imdb_id: string;
+  isLiked?: boolean;
 }

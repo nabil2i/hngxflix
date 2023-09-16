@@ -6,6 +6,7 @@ import {
   FaSignOutAlt,
   FaVideo,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MenuItems = () => {
   return (
@@ -23,10 +24,12 @@ const MenuItems = () => {
           borderRightColor: "red",
         }}
       >
-        <Box display="flex" alignItems="center" px="10" gap={2}>
-          <Icon as={FaHome} color="gray.300" boxSize={5} />
-          <Text>Home</Text>
-        </Box>
+        <Link to="/">
+          <Box display="flex" alignItems="center" px="10" gap={2}>
+            <Icon as={FaHome} color="gray.300" boxSize={5} />
+            <Text>Home</Text>
+          </Box>
+        </Link>
       </Box>
       <Box
         display="flex"

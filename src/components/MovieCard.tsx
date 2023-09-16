@@ -28,7 +28,7 @@ export const MovieCard = ({ movie }: Props) => {
         align="center"
       >
         {/* <Tag bg="gray">TV SERIES</Tag> */}
-        <LikeIcon />
+        <LikeIcon movie={movie}/>
       </HStack>
       <CardBody>
         <Box>
