@@ -8,7 +8,7 @@ const Footer = () => {
       align="center"
       justify="center"
       // bg="gray.900"
-      color="white"
+      // color="white"
       paddingY={4}
     >
       {/* First Row: Social Icons */}
